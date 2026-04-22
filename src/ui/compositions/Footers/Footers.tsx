@@ -12,7 +12,7 @@ import {
 } from "primitives";
 
 export type FooterProps = Omit<SectionProps, "variant" | "padding" | "src">;
-export function Footer({ className, ...props }: FooterProps) {
+export function Footer({ className: _className, ...props }: FooterProps) {
   const { isTabletDown } = useMediaQuery();
   const listDensity = isTabletDown ? "tight" : "default";
   return (

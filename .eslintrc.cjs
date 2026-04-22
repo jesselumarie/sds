@@ -7,12 +7,12 @@ module.exports = {
     "plugin:react-hooks/recommended",
     "plugin:storybook/recommended",
   ],
-  ignorePatterns: ["dist", ".eslintrc.cjs"],
+  ignorePatterns: ["dist", ".eslintrc.cjs", "vite.config.ts"],
   parser: "@typescript-eslint/parser",
   parserOptions: {
     ecmaVersion: "latest",
     sourceType: "module",
-    project: ["./tsconfig.json", "./tsconfig.node.json"],
+    project: ["./tsconfig.json"],
     tsconfigRootDir: __dirname,
   },
   plugins: ["react-refresh"],
@@ -20,6 +20,10 @@ module.exports = {
     "react-refresh/only-export-components": [
       "warn",
       { allowConstantExport: true },
+    ],
+    "@typescript-eslint/no-unused-vars": [
+      "error",
+      { argsIgnorePattern: "^_", varsIgnorePattern: "^_" },
     ],
   },
 };

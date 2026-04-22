@@ -32,7 +32,7 @@ export function Section({
   paddingTop,
   ...props
 }: SectionProps) {
-  const { variant = "subtle", ...spreadProps } = props;
+  const { variant: _variant = "subtle", ...spreadProps } = props;
   const classNames = clsx(
     className,
     "section",

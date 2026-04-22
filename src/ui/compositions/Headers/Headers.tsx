@@ -184,7 +184,7 @@ export function HeaderAuth() {
 }
 
 export type HeaderProps = Omit<SectionProps, "variant" | "padding" | "src">;
-export function Header({ className, ...props }: HeaderProps) {
+export function Header({ className: _className, ...props }: HeaderProps) {
   return (
     <Section
       className="header"

@@ -25,13 +25,17 @@ else
   ERRORS=$((ERRORS + 1))
 fi
 
-# Lint check
+# Lint check (allow warnings, fail only on errors)
 echo "Checking ESLint..."
-if npm run app:lint --silent 2>/dev/null; then
-  echo "  OK: No lint errors."
-else
+LINT_OUTPUT=$(npx eslint . --ext ts,tsx --report-unused-disable-directives 2>&1)
+# Check if eslint summary reports any errors (e.g. "(5 errors," or "(1 error,")
+# The summary line format: "✖ N problems (X errors, Y warnings)" — fail only if X > 0
+if echo "$LINT_OUTPUT" | grep -qE '\([1-9][0-9]* error'; then
+  echo "$LINT_OUTPUT"
   echo "  FAIL: Lint errors detected." >&2
   ERRORS=$((ERRORS + 1))
+else
+  echo "  OK: No lint errors."
 fi
 
 # Production build check

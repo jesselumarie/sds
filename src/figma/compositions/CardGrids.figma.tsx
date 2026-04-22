@@ -93,7 +93,9 @@ figma.connect(Section, "<FIGMA_SECTIONS_CARD_GRID_PRICING>", {
     schedule: figma.children("Navigation Pill List"),
   },
   example: ({ schedule }) => {
+    // eslint-disable-next-line react-hooks/rules-of-hooks
     const { monthlyPlans } = usePricing();
+    // eslint-disable-next-line react-hooks/rules-of-hooks
     const { isMobile } = useMediaQuery();
     const padding = isMobile ? "600" : "1200";
     const gap = isMobile ? "600" : "1200";

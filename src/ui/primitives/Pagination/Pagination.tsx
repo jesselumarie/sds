@@ -8,7 +8,7 @@ import "./pagination.css";
 export type PaginationProps = React.ComponentPropsWithoutRef<"nav">;
 export function Pagination({
   "aria-label": ariaLabel = "Page navigation",
-  className,
+  className: _className,
   ...props
 }: PaginationProps) {
   const classNames = clsx("pagination");
